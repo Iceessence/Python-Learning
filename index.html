@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>100 Days of Python Learning Journey</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <h1>Angela Yu's 100 Days of Code &mdash; Interactive Study Plan</h1>
+      <p>Track your progress, explore project briefs, and unlock curated resources as you move from Python basics to full-stack apps. Use the filters, search, and timeline view to tailor your learning experience.</p>
+      <div class="hero__actions">
+        <button id="toggleTimeline" class="btn btn--ghost">Toggle Timeline</button>
+        <button id="resetProgress" class="btn">Reset Progress</button>
+      </div>
+    </div>
+    <aside class="hero__stats">
+      <div class="stat-card">
+        <span class="stat-card__label">Days Completed</span>
+        <span id="completedCount" class="stat-card__value">0</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card__label">Overall Progress</span>
+        <div class="progress" aria-hidden="true">
+          <div id="progressBar" class="progress__bar"></div>
+        </div>
+        <span id="progressPercent" class="stat-card__subvalue">0%</span>
+      </div>
+    </aside>
+  </header>
+
+  <main>
+    <section class="panel panel--filters">
+      <div class="filter-group">
+        <label for="searchInput">Search projects</label>
+        <input type="search" id="searchInput" placeholder="Search by project, concept, or tool..." />
+      </div>
+      <div class="filter-group">
+        <span class="filter-group__label">Stage</span>
+        <div id="stageFilters" class="chip-group" role="group" aria-label="Stage filters"></div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-group__label">Focus</span>
+        <div id="focusFilters" class="chip-group" role="group" aria-label="Focus filters"></div>
+      </div>
+      <div class="filter-group">
+        <label class="toggle">
+          <input type="checkbox" id="completedToggle" />
+          <span>Show only incomplete days</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="panel panel--timeline" id="timelineSection" hidden>
+      <h2>Stage Overview</h2>
+      <div id="timeline" class="timeline"></div>
+    </section>
+
+    <section class="panel">
+      <header class="panel__header">
+        <h2>Daily Challenges</h2>
+        <p>Check off lessons as you master them. Click a card to reveal the daily goals, Python concepts, and optional stretch ideas.</p>
+      </header>
+      <div id="cards" class="cards" role="list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Inspired by Angela Yu's <em>100 Days of Code: The Complete Python Pro Bootcamp</em>. This companion planner helps you stay organised and discover supporting resources.</p>
+  </footer>
+
+  <template id="cardTemplate">
+    <article class="card" role="listitem">
+      <header class="card__header">
+        <div>
+          <span class="card__day"></span>
+          <h3 class="card__title"></h3>
+        </div>
+        <label class="card__checkbox">
+          <input type="checkbox" />
+          <span>Done</span>
+        </label>
+      </header>
+      <div class="card__meta"></div>
+      <div class="card__body" hidden>
+        <p class="card__description"></p>
+        <ul class="card__concepts"></ul>
+        <div class="card__resources"></div>
+      </div>
+      <button class="card__toggle" aria-expanded="false">Details</button>
+    </article>
+  </template>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>
